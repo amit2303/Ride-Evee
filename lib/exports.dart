@@ -17,6 +17,7 @@ export 'package:ride/airport_transfer/to_airport.dart';
 export 'package:ride/local_trip/twelve_hours.dart';
 export 'package:ride/main.dart';
 export 'package:ride/constants.dart';
+import 'package:ride/pages/home_page.dart';
 
 
 

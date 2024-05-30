@@ -1,4 +1,5 @@
 import 'package:ride/exports.dart';
+import 'package:ride/pages/home_page.dart';
 
 class to_airport extends StatelessWidget {
   const to_airport({super.key});
@@ -7,7 +8,7 @@ class to_airport extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       margin: EdgeInsets.fromLTRB(7, 0, 7, 5),
-      width: double.maxFinite,
+      width: ScreenSize.screenWidth,
       height: 400,
       decoration: BoxDecoration(
         color: Color(0xFFFFFFFF),

@@ -2,6 +2,10 @@ import 'package:ride/exports.dart';
 
 
 
+class ScreenSize {
+  static double screenHeight = 0.0;
+  static double screenWidth = 0.0;
+}
 
 class HomePage extends StatelessWidget {
   const HomePage({
@@ -11,8 +15,9 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final screenSize = MediaQuery.of(context).size;
-    double screenHeight =screenSize.height;
-    double screenWidth =screenSize.width;
+
+    ScreenSize.screenHeight = MediaQuery.of(context).size.height;
+    ScreenSize.screenWidth = MediaQuery.of(context).size.width;
     
     return Scaffold(
       backgroundColor: backgroundColor,
@@ -34,21 +39,21 @@ class HomePage extends StatelessWidget {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Container(
-                              width: 220,
-                              height: 70,
+                              width: ScreenSize.screenWidth*0.532,
+                              height: ScreenSize.screenHeight*0.056,
                               decoration: BoxDecoration(
                                 borderRadius: BorderRadius.circular(8),
                                 image: DecorationImage(
                                     image: AssetImage(
                                       'assets/images/logo.jpeg',
                                     ),
-                                    fit: BoxFit.cover),
+                                    fit: BoxFit.fill),
                               ),
                             ),
                             Container(
                               margin: edgeInsets,
-                              width: 38,
-                              height: 38,
+                              width: ScreenSize.screenWidth*0.074,
+                              height: ScreenSize.screenHeight*0.023,
                               child: SvgPicture.asset(
                                 'assets/vectors/bell.svg',
                               ),
@@ -65,9 +70,10 @@ class HomePage extends StatelessWidget {
                         child: Text(
                           'India’s Leading \nOne Way Inter-City \nCab Service Provider',
                           style: GoogleFonts.getFont(
+                            
                             'Poppins',
                             fontWeight: FontWeight.w700,
-                            fontSize: 19,
+                            fontSize: ScreenSize.screenWidth*0.055,
                             color: Color(0xFFFFFFFF),
                           ),
                         ),
@@ -80,8 +86,8 @@ class HomePage extends StatelessWidget {
                         var sliderIndex = ref.watch(sliderIndexProvider);
                         return Container(
                           margin: edgeInsets,
-                          width: double.maxFinite,
-                          height: 132,
+                          width: ScreenSize.screenWidth,
+                          height: ScreenSize.screenHeight*0.100,
                           child: Stack(
                             alignment: Alignment.bottomCenter,
                             children: [
@@ -93,7 +99,7 @@ class HomePage extends StatelessWidget {
                                           borderRadius:
                                               BorderRadius.circular(20),
                                           image: DecorationImage(
-                                            fit: BoxFit.cover,
+                                            fit: BoxFit.fill,
                                             image: AssetImage(
                                               'assets/images/banner.jpeg',
                                             ),
@@ -101,9 +107,9 @@ class HomePage extends StatelessWidget {
                                         ),
                                       ),
                                   options: CarouselOptions(
-                                    enableInfiniteScroll: false,
-                                    height: 132,
                                     autoPlay: true,
+                                    enableInfiniteScroll: false,
+                                    height: ScreenSize.screenHeight*0.100,
                                     viewportFraction: 1,
                                     onPageChanged: (index, reason) {
                                       ref
@@ -136,6 +142,8 @@ class HomePage extends StatelessWidget {
                     ),
     
                     Container(
+                      width: ScreenSize.screenWidth,
+                      height: ScreenSize.screenHeight*0.064,
                       margin: edgeInsets,
                       child: Align(
                         alignment: Alignment.topLeft,
@@ -155,7 +163,7 @@ class HomePage extends StatelessWidget {
                               children: [
                                 Expanded(
                                   child: Container(
-                                      margin: EdgeInsets.only(right: 3),
+                                      // margin: EdgeInsets.only(right: 3),
                                       decoration: BoxDecoration(
                                         borderRadius:
                                             BorderRadius.circular(20),
@@ -181,20 +189,19 @@ class HomePage extends StatelessWidget {
                                           },
                                           icon: Column(
                                             children: [
-                                              Container(
-                                                height: 50,
-                                                child: Image.asset(
-                                                  'assets/images/outstation_trip.png',
-                                                  color:
-                                                      updateColorOutstation,
-                                                ),
+                                              Image.asset(
+                                                height: ScreenSize.screenHeight*0.030,
+                                                width: ScreenSize.screenWidth*0.093,
+                                                'assets/images/outstation_trip.png',
+                                                color:
+                                                    updateColorOutstation,
                                               ),
                                               Text(
                                                 'Outstation trip',
                                                 style: GoogleFonts.getFont(
                                                   'Poppins',
                                                   fontWeight: FontWeight.w400,
-                                                  fontSize: 12,
+                                                  fontSize: ScreenSize.screenHeight*0.01,
                                                   color:
                                                       updateColorOutstation,
                                                 ),
@@ -231,19 +238,18 @@ class HomePage extends StatelessWidget {
                                           },
                                           icon: Column(
                                             children: [
-                                              Container(
-                                                height: 50,
-                                                child: Image.asset(
-                                                  'assets/images/local_trip.png',
-                                                  color: updateColorLocal,
-                                                ),
+                                              Image.asset(
+                                                height: ScreenSize.screenHeight*0.030,
+                                                width: ScreenSize.screenWidth*0.093,
+                                                'assets/images/local_trip.png',
+                                                color: updateColorLocal,
                                               ),
                                               Text(
                                                 'Local Trip',
                                                 style: GoogleFonts.getFont(
                                                   'Poppins',
                                                   fontWeight: FontWeight.w400,
-                                                  fontSize: 12,
+                                                  fontSize: ScreenSize.screenHeight*0.01,
                                                   color: updateColorLocal,
                                                 ),
                                               ),
@@ -251,6 +257,7 @@ class HomePage extends StatelessWidget {
                                           ))),
                                 ),
                                 Expanded(
+
                                   child: Container(
                                       margin: EdgeInsets.only(left: 3),
                                       decoration: BoxDecoration(
@@ -278,19 +285,18 @@ class HomePage extends StatelessWidget {
                                           },
                                           icon: Column(
                                             children: [
-                                              Container(
-                                                height: 50,
-                                                child: Image.asset(
-                                                  'assets/images/airport_transfer.png',
-                                                  color: updateColorAirport,
-                                                ),
+                                              Image.asset(
+                                                height: ScreenSize.screenHeight*0.030,
+                                                width: ScreenSize.screenWidth*0.093,
+                                                'assets/images/airport_transfer.png',
+                                                color: updateColorAirport,
                                               ),
                                               Text(
                                                 'Airport transfer',
                                                 style: GoogleFonts.getFont(
                                                   'Poppins',
                                                   fontWeight: FontWeight.w400,
-                                                  fontSize: 12,
+                                                  fontSize: ScreenSize.screenHeight*0.01,
                                                   color: updateColorAirport,
                                                 ),
                                               ),
@@ -304,27 +310,53 @@ class HomePage extends StatelessWidget {
                       ),
                     ),
     
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
                     Consumer(builder: (BuildContext context, WidgetRef ref, Widget? child) {
                       final tripContainer = ref.watch(tripcontainerProvider).updateTripContainer;
                       return tripContainer;
     
                      },
                     ),
-                                Container(
+           Container(
             margin: edgeInsets,
             child: Container(
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(20),
                 image: DecorationImage(
-                  fit: BoxFit.cover,
+                  fit: BoxFit.fill,
                   image: AssetImage(
                     'assets/images/map.png',
                   ),
                 ),
               ),
               child: Container(
-                width: 398,
-                height: 180,
+                width: ScreenSize.screenWidth,
+                height:ScreenSize.screenHeight*0.137,
               ),
             ),
           ),
